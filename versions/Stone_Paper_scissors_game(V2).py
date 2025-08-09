@@ -1,10 +1,10 @@
 import random
 
-OPTIONS = ["rock", "paper", "scissors"]
+OPTIONS = ["stone", "paper", "scissors"]
 WIN_RULES = {
-    ("rock", "scissors"): "Computer wins!",
+    ("stone", "scissors"): "Computer wins!",
     ("scissors", "paper"): "Computer wins!",
-    ("paper", "rock"): "Computer wins!",
+    ("paper", "stone"): "Computer wins!",
 }
 
 def get_winner(user, computer):
@@ -14,10 +14,10 @@ def get_winner(user, computer):
 
 def play_game():
     computer_choice = random.choice(OPTIONS)
-    user_choice = input("Choose rock, paper or scissors: ").lower().strip()
+    user_choice = input("Choose stone, paper or scissors: ").lower().strip()
     
     while user_choice not in OPTIONS:
-        print("Invalid choice! Please choose: rock, paper, scissors")
+        print("Invalid choice! Please choose: stone, paper, scissors")
         user_choice = input("Your choice: ").lower().strip()
     
     print(f"\nYour choice: {user_choice}")
