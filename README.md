@@ -3,4 +3,4 @@
 
 ## Как запустить
 ```bash
-python rock-paper-scissors.py
+python rock_paper_scissors.py
