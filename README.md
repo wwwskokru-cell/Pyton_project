@@ -1,6 +1,13 @@
 # Rock Paper Scissors Game
-Простая консольная игра на Python
+A simple comsole game in Python
 
-## Как запустить
+## How to launch
 ```bash
-python rock_paper_scissors.py
+python rock-paper-scissors_game(V2).py
+
+## Projct versions
+- [v1_initial.py](versions/v1_initial.py) - The original version
+- [v2_refactored.py](versions/v2_refactored.py) - Improved version with:
+  * Dictionary of rules instead of complex conditions
+  * Functional decomposition
+  * Auto-correction of inputgir 
