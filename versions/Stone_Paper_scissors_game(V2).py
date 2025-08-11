@@ -27,6 +27,7 @@ def play_game():
     print(f"Result: {result} {emoji}")
 
 if __name__ == "__main__":
+    print("🔥 Welcome to Rock-Paper-Scissors! 🔥")
     while True:
         play_game()
         if input("\nPlay again? (y/n): ").lower() != 'y':
