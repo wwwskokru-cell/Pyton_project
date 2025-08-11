@@ -23,6 +23,3 @@ def play_game():
     print(f"\nYour choice: {user_choice}")
     print(f"Computer's choice: {computer_choice}")
     print(f"Result: {get_winner(user_choice, computer_choice)}")
-
-if __name__ == "__main__":
-    play_game()
