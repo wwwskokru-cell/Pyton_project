@@ -22,4 +22,13 @@ def play_game():
     
     print(f"\nYour choice: {user_choice}")
     print(f"Computer's choice: {computer_choice}")
-    print(f"Result: {get_winner(user_choice, computer_choice)}")
+    result = get_winner(user_choice, computer_choice)
+    emoji = "🎉" if "win" in result else "😢" if "Computer" in result else "🤝"
+    print(f"Result: {result} {emoji}")
+
+if __name__ == "__main__":
+    while True:
+        play_game()
+        if input("\nPlay again? (y/n): ").lower() != 'y':
+            print("Thanks for playing!")
+            break
