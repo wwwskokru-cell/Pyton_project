@@ -16,3 +16,6 @@ while True:
 
 tips = order_amount / 100 * tips_percentage
 print (f"Thanks, rhe tip was: {tips:.2f}")
+
+if __name__ == "__main__":
+    main()
