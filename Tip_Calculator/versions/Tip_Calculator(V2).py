@@ -1,7 +1,7 @@
 import csv
 import os
 
-def save_to_csv(final_score: dict, filename: str = "results.csv") -> None:
+def save_to_csv(final_score: dict, filename: str = "Tip_Calculator/results.csv") -> None:
     file_exists = os.path.exists(filename)
     need_header = (not file_exists) or (os.path.getsize(filename) == 0)
     try:
