@@ -1,3 +1,7 @@
+'''
+Пока хз как работает эта версия, написал с помощью ИИ
+
+'''
 import csv
 import os
 import tkinter as tk
