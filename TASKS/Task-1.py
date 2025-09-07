@@ -6,6 +6,8 @@ from collections import Counter
 
 
 def get_user_input ():
+    #Ввалидация ввода пользователя
+
     is_input_valid = True
     while is_input_valid:
         entering_numbers = input("Введите 5 чисел через запятую от 1 до 13: ").lower().strip()
@@ -26,21 +28,18 @@ def get_user_input ():
         if entering_numbers_int[0] == entering_numbers_int[1] == entering_numbers_int[2] == entering_numbers_int[3] == entering_numbers_int[4]:
             print("К сожалению в колоде только по 4 одинаковых карты, вы ввели 5, это недопустимо")
             continue
-
-        index = 0
-        for num in entering_numbers_int:
-            if 0 < num < 14:
-                index += 1
-                if index == 5:
-                    is_input_valid = False
-            else:
-                print("Вводите только числа от 1 до 13")
-                continue
+        
+        if all(1<= num <= 13 for num in entering_numbers_int):
+            return entering_numbers_int
+        else:
+            print("Вводите только числа от 1 до 13")
+            continue
 
     return entering_numbers_int 
 
 
 def counting_pairs_set_card (entering_numbers_int ):
+    #Определение пара, сет, каре
     answer = {
         "Пары" : 0,
         "Сет" : 0,
@@ -58,6 +57,7 @@ def counting_pairs_set_card (entering_numbers_int ):
 
 
 def counting_street (entering_numbers_int):
+    #Отпределение стрит
     number_int_sort = set(entering_numbers_int)
     number_int_sort = sorted(number_int_sort)
     checking_street = True
@@ -73,7 +73,9 @@ def counting_street (entering_numbers_int):
     return checking_street
 
 
-def answer_final (answer, checking_street):
+def answer_final (answer, checking_street, entering_numbers_int):
+    #Подсчет результата
+
     answer_final_dict = {
         "Каре": 0,
         "Фул Хаус" : 0,
@@ -87,21 +89,21 @@ def answer_final (answer, checking_street):
         answer_final_dict["Каре"] += 1 
     elif answer["Сет"] == 1 and answer["Пары"] == 1:
         answer_final_dict["Фул Хаус"] += 1 
-        answer["Сет"] -=1
-        answer["Пары"] -=1 
     elif checking_street == True:
         answer_final_dict["Стрит"] += 1
     elif answer["Сет"] == 1:
         answer_final_dict["Сет"] += 1
     elif answer["Пары"] == 2:
         answer_final_dict["2 Пары"] += 1
-        answer["Пары"] -= 2
     elif answer["Пары"] == 1:
         answer_final_dict["Пара"] += 1
     
     for i in list(answer_final_dict.keys()):
         if answer_final_dict[i] == 0:
             del answer_final_dict[i]
+
+    if not bool(answer_final_dict):
+        answer_final_dict = f"Старшая карта: {max(entering_numbers_int)}"
 
     return answer_final_dict
 
@@ -110,4 +112,4 @@ if __name__ == "__main__":
     entering_numbers_int = get_user_input ()
     checking_street = counting_street(entering_numbers_int)
     answer = counting_pairs_set_card (entering_numbers_int)
-    print(answer_final (answer, checking_street))
+    print(answer_final (answer, checking_street, entering_numbers_int))
