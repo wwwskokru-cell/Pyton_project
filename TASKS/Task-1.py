@@ -4,7 +4,6 @@
 from collections import Counter
 
 
-
 def get_user_input ():
     #Ввалидация ввода пользователя
 
