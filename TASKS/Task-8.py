@@ -12,11 +12,6 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 #не решена
 
 def to_jaden_case(string):
-    string = string.split()
-    for i in string:
-        answer = list(i)           
-        answer = answer[0].upper() + answer[1:]
-
-    return answer
+    return ' '.join([i.capitalize() for i in string.split()])
 
 print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
